@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="sp.com.cleverclean.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_addbin"
+            app:destination="@id/nav_addbin" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_log"
+            app:destination="@id/nav_log" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_addbin"
+        android:name="sp.com.cleverclean.ui.gallery.GalleryFragment"
+        android:label="@string/menu_addbin"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="sp.com.cleverclean.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_list"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_log"
+        android:name="sp.com.cleverclean.ui.activitylog.LogFragment"
+        android:label="@string/menu_log"
+        tools:layout="@layout/fragment_log" />
+</navigation>

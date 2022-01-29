@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Clever Clean</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Clever Clean</string>
+    <string name="nav_header_subtitle">Your Smart Dustbin Alert</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <!--These will be shown as title on toolbar-->
+    <string name="menu_home">Home</string>
+    <string name="menu_addbin">Add Bin</string>
+    <string name="menu_list">List</string>
+    <string name="menu_log">Log</string>
+</resources>
