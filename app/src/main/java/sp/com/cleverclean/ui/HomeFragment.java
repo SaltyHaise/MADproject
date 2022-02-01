@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import sp.com.cleverclean.R;
-import sp.com.cleverclean.databinding.FragmentHomeBinding;
+
 
 
 public class HomeFragment extends Fragment {

@@ -23,15 +23,15 @@
 
     <fragment
         android:id="@+id/nav_addbin"
-        android:name="sp.com.cleverclean.ui.GalleryFragment"
+        android:name="sp.com.cleverclean.ui.AddFragment"
         android:label="@string/menu_addbin"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_addbin" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="sp.com.cleverclean.ui.ListFragment"
         android:label="@string/menu_list"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/nav_log"
         android:name="sp.com.cleverclean.ui.LogFragment"
