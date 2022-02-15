@@ -28,6 +28,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataInput;
 import java.io.IOException;
 
 import sp.com.cleverclean.GPSTracker;
@@ -45,14 +47,22 @@ public class AddFragment extends Fragment implements View.OnClickListener{
     private TextView location;
     private double latitude = 0.0d;
     private double longitude = 0.0d;
-    private double myLatitude;
-    private double myLongitude;
+    private GPSTracker gpsTracker;
     private Button getLocation;
     private byte[] bArray;
     private Bitmap bitmap = null;
     private Uri imageUri;
 
+    private MyDatabaseHelper helper = null;
+    public AddFragment(){}
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        gpsTracker = new GPSTracker(getContext());
+        helper = new MyDatabaseHelper(getContext());
+    }
 
     @Nullable
     @Override
@@ -84,7 +94,27 @@ public class AddFragment extends Fragment implements View.OnClickListener{
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
                 break;
+            case R.id.getLocation:
+                if (gpsTracker.canGetLocation()) {
+                    latitude = gpsTracker.getLatitude();
+                    longitude = gpsTracker.getLongitude();
+                    location.setText(String.valueOf(latitude) + ", " + String.valueOf(longitude));
+                }
+                break;
+            case R.id.save:
+                String BinID = BinName.getText().toString();
+                String Address = BinAddress.getText().toString();
+                String uri = "";
+                String status = "";
 
+                if (imageUri == null) {
+                    Toast.makeText(getContext(), "Please select an image", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                    bArray = bos.toByteArray();
+                }
         }
     }
 
